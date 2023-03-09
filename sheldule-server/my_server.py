@@ -1,11 +1,8 @@
 from datetime import datetime
 import schedule
 import time
-import calendarAPI
-import veloAPI
-import notifAPI
+from utils import calendarAPI, veloAPI, notifAPI
 import pytz
-
 
 # like HH:MM
 def format_time(date):
@@ -46,9 +43,11 @@ def job():
 
 
 # every day at 7:00AM without the weekends
-schedule.every().day.at("07:00").do(job)
 
-print("starting", datetime.now())
+tz = pytz.timezone('Europe/Paris')
+print("starting !", datetime.now(), datetime.now().astimezone(tz))
+schedule.every().day.at("16:44").do(job)
+
 while True:
     schedule.run_pending()
     time.sleep(1)

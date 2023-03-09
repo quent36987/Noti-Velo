@@ -1,8 +1,9 @@
 FROM python:3
 
-COPY requirements.txt ./
+COPY requirements.txt requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
+
 
 CMD [ "python3", "-u", "./my_server.py" ]
