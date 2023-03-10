@@ -12,7 +12,8 @@ def get_first_event_today():
 
     if response.ok:
         # Parse le fichier ICS en un objet Calendar
-        cal = Calendar.from_ical(response.text)
+        isc_content = response.content.decode('utf-8')
+        cal = Calendar.from_ical(isc_content)
 
         # Récupère les informations d'événement requises pour la journée d'aujourd'hui
         today = date.today()

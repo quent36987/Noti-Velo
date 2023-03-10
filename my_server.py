@@ -40,19 +40,15 @@ def job():
     time.sleep(time_left_seconds - 1800)
 
     # send the notification
-    status, num_bikes, num_stands = veloAPI.get_velov_info()
-    print(f' status: {status}, num_bikes: {num_bikes}, num_stands: {num_stands}')
-
-    if status == 'OPEN':
-        notifAPI.send_notification('VELO',
-                                   f'il y a {num_bikes} vélos et {num_stands} places, {name} commence a {format_time(start)}')
+    message = veloAPI.get_velov_info()
+    message = f"{name} à {format_time(start)}\n" + message
+    notifAPI.send_notification('VELO', message)
 
 
 # every day at 7:00AM without the weekends
 schedule.every().day.at("07:00").do(job)
 
-if __name__ == "__main__":
-    print("loading")
-    while True:
-        schedule.run_pending()
-        time.sleep(1)
+print("starting", datetime.now())
+while True:
+    schedule.run_pending()
+    time.sleep(1)
