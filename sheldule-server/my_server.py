@@ -48,6 +48,8 @@ tz = pytz.timezone('Europe/Paris')
 print("starting !", datetime.now(), datetime.now().astimezone(tz))
 schedule.every().day.at("16:44").do(job)
 
+notifAPI.send_notification('[INFO]', "Server started !")
+
 while True:
     schedule.run_pending()
     time.sleep(1)

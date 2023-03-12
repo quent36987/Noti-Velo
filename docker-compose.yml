@@ -1,11 +1,5 @@
 version: "3.9"
 services:
-  web:
-    build: ./flash-server
-    ports:
-      - "8000:5000"
-  redis:
-    image: "redis:alpine"
   auto-velo:
     build: ./sheldule-server
     volumes:
