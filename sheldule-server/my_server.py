@@ -46,7 +46,7 @@ def job():
 
 tz = pytz.timezone('Europe/Paris')
 print("starting !", datetime.now(), datetime.now().astimezone(tz))
-schedule.every().day.at("16:44").do(job)
+schedule.every().day.at("07:00").do(job)
 
 notifAPI.send_notification('[INFO]', "Server started !")
 
