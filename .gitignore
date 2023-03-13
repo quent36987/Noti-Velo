@@ -70,7 +70,7 @@ instance/
 
 # Sphinx documentation
 docs/_build/
-sheldule-server/utils/helloWorld.py
+src/utils/helloWorld.py
 
 # PyBuilder
 target/
@@ -103,7 +103,7 @@ celerybeat.pid
 *.sage.py
 
 # Environments
-sheldule-server/.env
+.env
 .venv
 env/
 venv/

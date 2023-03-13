@@ -3,7 +3,9 @@ FROM python:3
 COPY requirements.txt requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY . .
+COPY src/my_server.py .
+COPY src/utils utils
+COPY .env .
 
 
 CMD [ "python3", "-u", "./my_server.py" ]

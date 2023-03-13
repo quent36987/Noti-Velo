@@ -39,7 +39,7 @@ def job():
     # send the notification
     message = veloAPI.get_velov_info()
     message = f"{name} à {format_time(start)}\n" + message
-    notifAPI.send_notification('VELO', message)
+    notifAPI.send_notification('[VELO]', message)
 
 
 # every day at 7:00AM without the weekends
@@ -48,7 +48,7 @@ tz = pytz.timezone('Europe/Paris')
 print("starting !", datetime.now(), datetime.now().astimezone(tz))
 schedule.every().day.at("07:00").do(job)
 
-notifAPI.send_notification('[INFO]', "Server started !")
+notifAPI.send_notification('[INFO]', f'Server started ! {datetime.now().time() == datetime.now().astimezone(tz).time()}')
 
 while True:
     schedule.run_pending()

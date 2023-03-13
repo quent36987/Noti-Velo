@@ -8,6 +8,8 @@ load_dotenv()
 url = 'https://api.jcdecaux.com/vls/v3/stations/'
 params = {'contract': 'lyon', 'apiKey': os.environ.get('VELOV_API_KEY')}
 
+print(os.environ.get('VELOV_API_KEY'))
+
 stations = [
     {
         'name': 'mc do',
