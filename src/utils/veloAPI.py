@@ -25,6 +25,16 @@ stations = [
     }
 ]
 
+# return status, available_bikes, available_stands
+def get_station_info(number):
+    res = requests.get(url + str(number), params=params)
+
+    if res.ok:
+        data = json.loads(res.content.decode('utf-8'))
+        return data['status'], data['mainStands']['availabilities']['bikes'], data['mainStands']['availabilities']['stands']
+    else:
+        return None
+
 
 def get_velov_info():
     responses = []
